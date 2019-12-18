@@ -1,12 +1,13 @@
 from random import randint
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    return app.send_static_file('cool.html')
+    return render_template('cool.html')
+
 
 @app.route("/one")
 def one():
@@ -56,5 +57,6 @@ def two():
     
         
     return output
+    
 if __name__ == "__main__":
     app.run()
